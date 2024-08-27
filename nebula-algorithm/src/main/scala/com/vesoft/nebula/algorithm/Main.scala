@@ -142,7 +142,8 @@ object Main {
         val ccConfig = CcConfig.getCcConfig(configs)
         StronglyConnectedComponentsAlgo(spark, dataSet, ccConfig, hasWeight)
       case AlgorithmType.TriangleCount =>
-        TriangleCountAlgo(spark, dataSet)
+        val config = TriangleConfig.getTriangleConfig(configs)
+        TriangleCountAlgo(spark, dataSet, config)
       case AlgorithmType.BetweennessCentrality =>
         val betweennessConfig = BetweennessConfig.getBetweennessConfig(configs)
         BetweennessCentralityAlgo(spark, dataSet, betweennessConfig, hasWeight)
